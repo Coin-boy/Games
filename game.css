@@ -1,0 +1,504 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  box-sizing: inherit;
+}
+
+body {
+  background-color: white;
+  font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
+}
+
+.gamebox {
+  margin:auto;
+  display: grid;
+  position: absolute;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 0.5;
+  background-color: rgba(5, 5, 5, 0.9);
+  max-width: 960px;
+  max-height: 100vh;
+  border: 1rem solid rgba(5, 5, 5, 0.9);
+  border-radius: 1rem;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.launch-area {
+  display: flex;
+  position: relative;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.launch-pole {
+}
+
+.rocket {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  align-self: center;
+  left: 25rem;
+  top: 11rem;
+  width: 10rem;
+  height: 45vh;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+/* animation for rocket */
+@keyframes rocketlaunch {
+  10% {
+    top: 11rem;
+  }
+  100% {
+    top: 1rem;
+  }
+}
+
+.cone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  position: relative;
+  margin: auto;
+  font-size: 60px;
+  color: blue;
+  height: 9rem;
+  padding: 2.5rem;
+  width: 1.5rem;
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  background-color: red;
+  position:relative;
+}
+
+.cone span {
+  display: flex;
+  position: relative;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: blue;
+  border-radius: 3rem;
+}
+
+.load {
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  font-size: 60px;
+  color: blue;
+  position: relative;
+  margin: auto;
+  padding: 2.5rem;
+  width: 1.5rem;
+  background-color: red;
+  position: relative;
+}
+
+.load span {
+  display: flex;
+  position: relative;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: blue;
+  border-radius: 3rem;
+}
+
+.launcher {
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  position: relative;
+  font-size: 60px;
+  color: blue;
+  margin: -2rem auto;
+  padding: 3rem;
+  width: 1.5rem;
+  height: 18rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-color: red;
+  
+}
+
+.rocket-fire {
+  display: none;
+  position: relative;
+  margin:auto;
+  width: 2rem;
+  background-color: red;
+  padding: 2rem 1rem;
+  border-radius: 2rem;
+}
+
+.innerfire {
+  display: flex;
+  position: relative;
+  margin: auto;
+  right: 0.1rem;
+  background-color: orange;
+  padding: 2rem 0.2rem;
+  border-radius: 4rem;
+}
+
+.ground {
+  display: flex;
+  position: relative;
+  padding: 0.5rem;
+  right: 5rem;
+  width: 100%;
+  height: 1rem;
+  background-color: brown;
+  border-top-right-radius: 10rem;
+  border-top-left-radius: 10rem;
+  align-self: flex-end;
+}
+
+.hacking-area {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-rows: minmax(1fr, auto);
+  width: 100%;
+  height: auto;
+  background-color:rgba(5, 5, 5, 0.9);
+  border-radius: 1rem;
+}
+
+.outscreen {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 1fr;
+  height: auto;
+  background-color: rgba(5, 5, 5, 0.9);
+  padding: 1rem;
+}
+
+.output {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 100%;
+  height: 10rem;
+  background-color: grey;
+  overflow: auto;
+}
+
+.life-bulb {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  align-items: baseline;
+  width: 100%;
+  margin: auto;
+  background-color: transparent;
+}
+
+.life-bulb span {
+  width: 1rem;
+  height: 1rem;
+  padding: 0.5rem;
+  background-color: lightgreen;
+  border-radius: 2rem;
+}
+.inscreen {
+  display: flex;
+  flex-flow: column wrap;
+  width: 1fr;
+  height: 1fr;
+  padding: 3rem;
+  background-color: rgba(5, 5, 5, 0.9);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.hint-bulbs {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: transparent;
+}
+
+.hint-bulbs span {
+  padding: 0.7rem;
+  border-radius: 1rem;
+  margin: auto;
+  background-color: white;
+}
+form {
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+  align-content: center;
+  width: 1fr;
+  height: auto;
+}
+form input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  border-color: white;
+  border-radius: 1rem;
+}
+
+.codebox {
+  letter-spacing: 3rem;
+  text-align: justify;
+  font-size: 3rem;
+  margin: 0;
+  text-indent: 1.5rem;
+}
+.button-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(5, 5, 5, 0.9);
+  border: 1rem;
+  color: white;
+}
+.button-box button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0.2rem;
+  background: orange;
+  border: 1rem solid transparent;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.hidden {
+  display: flex-box;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  max-width: 40rem;
+  height: auto;
+  margin: 0;
+  font-size: 5rem;
+  font-style: monospace;
+  background-color: pink;
+  padding: 5rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  font-weight: 900;
+  color: blue;
+}
+
+.error {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+  color: orange;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  font-size: 5rem;
+  line-height: 2.5rem;
+  font-weight: bolder;
+}
+
+.success {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  max-width: 100%;
+  height: 100%;
+  color: orange;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  font-size: 5rem;
+  line-height: 2.5rem;
+  font-weight: bolder;
+  text-align: center;
+  animation: launch 7s;
+}
+
+.access_grant {
+  display: none;
+}
+.l3 {
+  display: none;
+}
+
+.l2 {
+  display: none;
+}
+
+.l1 {
+  display: none;
+}
+
+.l0 {
+  display: none;
+}
+
+.launch {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+
+
+  .gamebox {
+    display:block;
+    max-width:100%;
+    border:border-box;
+
+  }
+
+  .hacking-area {
+    display:block;
+    max-height:50vh;
+  }
+
+  .launch-area {
+    display:flex;
+    max-width:100%;
+  }
+
+  .cone {
+    max-width:10%;
+    margin:7rem auto 0;
+  }
+  
+  .cone span {
+    padding: 0.7rem;
+
+  }
+  
+  .load {
+    display:flex;
+    height:12rem;
+  }
+  
+  .load span {
+    margin: 0.5rem;
+    padding: 0.7rem;
+
+  }
+  
+    
+  .codebox {
+    max-width: 50%;
+    height:auto;
+    margin: auto;
+    text-indent: 2rem;
+  }
+
+  .ground{
+    width:70%;
+  }
+
+  .rocket {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    align-self: center;
+    left: 15rem;
+    top:-2rem;
+    width: 0.5rem;
+    height:20%;
+    background-color: transparent;
+    box-sizing:inherit;
+  }
+
+  .launcher {
+    display:flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    position: relative;
+    font-size: 60px;
+    color: blue;
+    margin:-1rem -0.5rem;
+    padding:3rem;
+    width: 1.2rem;
+    height: 3rem;
+  };
+
+  .rocket-fire {
+    display: none;
+    position: relative;
+    margin:auto 1.2rem;
+    width: 2rem;
+    background-color: red;
+    padding: 2rem 1rem;
+    border-radius: 2rem;
+  }
+  
+  .innerfire {
+    display: flex;
+    position: relative;
+    margin: auto;
+    right: 0.1rem;
+    background-color: orange;
+    padding: 2rem 0.2rem;
+    border-radius: 4rem;
+  }
+  
+  
+
+
+  .outscreen{
+    display:none;
+  }
+
+  @keyframes rocketlaunch {
+    30% {
+      top: 2rem;
+    }
+    100% {
+      top: 0rem;
+    }
+  }
+
+  .button-box {
+    display:grid;
+    max-width:80%;
+    margin:auto;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    column-gap: 0.3rem; 
+    padding: 0.5rem;
+    background: rgba(5, 5, 5, 0.9);
+    border: 0.5rem;
+    color: white;
+  }
+  .button-box button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem;
+    margin: 0.1rem;
+    background: orange;
+    border: 1rem solid transparent;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+
+}
